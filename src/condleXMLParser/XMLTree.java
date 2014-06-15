@@ -1,6 +1,4 @@
-/**
- * Class that encapsulates the xml tree. Nodes that can have many children.
- */
+package condleXMLParser;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

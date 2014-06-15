@@ -2,12 +2,20 @@
  * Parses XML file to a XML tree
  */
 
+package condleXMLParser;
+
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.InputMismatchException;
 
 public class XMLParser {
+
+
+    public XMLParser(String pathToXMLFile) {
+
+    }
+
 
     public static void main(String[] args) throws IOException {
 
