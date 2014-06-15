@@ -5,6 +5,7 @@ public class XMLParser {
 
     public static void main(String[] args) throws IOException {
 
+        //TODO: Change static xml file input to Stdin or args
         BufferedReader br = new BufferedReader(
                 new FileReader("/Users/mscndle/Developer/IdeaProjects/InterviewProb/Coderust/src" +
                         "/sample.xml"));

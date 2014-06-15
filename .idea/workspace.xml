@@ -64,10 +64,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="XMLTree.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="XMLTree.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/XMLTree.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="28" selection-start="164" selection-end="164" vertical-scroll-proportion="0.10897436" vertical-offset="0" max-vertical-offset="936">
+            <state line="6" column="28" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -77,10 +77,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="XMLParser.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="XMLParser.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/XMLParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="29" selection-start="1451" selection-end="1451" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
+            <state line="7" column="61" selection-start="212" selection-end="212" vertical-scroll-proportion="0.12713675" vertical-offset="0" max-vertical-offset="1513">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -378,15 +378,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/XMLParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="29" selection-start="1451" selection-end="1451" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1496">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/XMLTreeToJson.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="26" selection-start="99" selection-end="99" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
@@ -396,11 +387,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/XMLTree.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="28" selection-start="164" selection-end="164" vertical-scroll-proportion="0.10897436" vertical-offset="0" max-vertical-offset="936">
+        <state line="6" column="28" selection-start="164" selection-end="164" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="850">
           <folding>
             <element signature="n#!!doc" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#634#640#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/XMLParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="61" selection-start="212" selection-end="212" vertical-scroll-proportion="0.12713675" vertical-offset="0" max-vertical-offset="1513">
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
