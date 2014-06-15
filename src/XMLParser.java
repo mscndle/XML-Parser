@@ -1,4 +1,10 @@
-import java.io.*;
+/**
+ * Parses XML file to a XML tree
+ */
+
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.InputMismatchException;
 
 public class XMLParser {
