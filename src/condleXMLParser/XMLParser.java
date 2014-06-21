@@ -11,18 +11,19 @@ import java.util.InputMismatchException;
 
 public class XMLParser {
 
-
     public XMLParser(String pathToXMLFile) {
-
+        try {
+            readXMLFile(pathToXMLFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
-    public static void main(String[] args) throws IOException {
+    public static void readXMLFile(String pathToXMLFile) throws IOException {
 
         //TODO: Change static xml file input to Stdin or args
-        BufferedReader br = new BufferedReader(
-                new FileReader("/Users/mscndle/Developer/IdeaProjects/InterviewProb/Coderust/src" +
-                        "/sample.xml"));
+        BufferedReader br = new BufferedReader(new FileReader(pathToXMLFile));
         String line;
 
         StringBuilder xml = new StringBuilder();
@@ -31,7 +32,7 @@ public class XMLParser {
             xml.append(line);
         }
 
-        System.out.println(parseXMLToTree(xml.toString()).getTree());
+        System.out.println(parseXMLToTree(xml.toString()).getDFSTree());
     }
 
 
