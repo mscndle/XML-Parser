@@ -9,9 +9,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.InputMismatchException;
 
-public class XMLParser {
+class XMLParser {
 
-    public XMLParser(String pathToXMLFile) {
+    protected XMLParser(String pathToXMLFile) {
         try {
             readXMLFile(pathToXMLFile);
         } catch (IOException e) {
@@ -19,8 +19,7 @@ public class XMLParser {
         }
     }
 
-
-    public static void readXMLFile(String pathToXMLFile) throws IOException {
+    protected String readXMLFile(String pathToXMLFile) throws IOException {
 
         //TODO: Change static xml file input to Stdin or args
         BufferedReader br = new BufferedReader(new FileReader(pathToXMLFile));
@@ -32,11 +31,13 @@ public class XMLParser {
             xml.append(line);
         }
 
-        System.out.println(parseXMLToTree(xml.toString()).getDFSTree());
+        //System.out.println(parseXMLToTree(xml.toString()).getDFSTree());
+
+        return xml.toString();
     }
 
 
-    private static void processXMLString(XMLTree.Node parent, String rest) {
+    private void processXMLString(XMLTree.Node parent, String rest) {
         if (parent == null || rest == null) { //mandatory error check
             throw new InputMismatchException("XML not well formed");
         }
@@ -46,8 +47,7 @@ public class XMLParser {
 
         if (nodeStart == -1 && nodeEnd == -1) { //no more XML nodes in "rest"
             parent.addChild(new XMLTree.Node(rest));
-        }
-        else {
+        } else {
             String childNodeData = rest.substring(nodeStart+1, nodeEnd);
             String closingChildNode = "</" + childNodeData + ">";
             int closingChildIndex = rest.indexOf(closingChildNode);
@@ -70,7 +70,7 @@ public class XMLParser {
 
     }
 
-    private static XMLTree parseXMLToTree(String xml) {
+    protected XMLTree parseXMLToTree(String xml, XMLTree xmlTree) {
 
         int rootStart = xml.indexOf('<');    //finding first xml node
         int rootEnd = xml.indexOf('>');
@@ -83,7 +83,6 @@ public class XMLParser {
             throw new InputMismatchException("XML not well formed");
         }
 
-        XMLTree xmlTree = new XMLTree();
         XMLTree.Node rootNode = new XMLTree.Node(rootData);
         xmlTree.root = rootNode;
 

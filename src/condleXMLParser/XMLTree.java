@@ -1,16 +1,22 @@
 package condleXMLParser;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Stack;
+import java.util.HashMap;
 
-class XMLTree {
-    Node root;
+/**
+ *  Represents an xml file as a tree with non-leaf nodes representing attributes
+ *  and leaf nodes representing data
+ */
+public class XMLTree {
+    protected Node root;
 
     static class Node {
         String data;
         ArrayList<Node> childNodes;
+        HashMap<String, String> attributes; //optional
 
         Node(String data) {
             this.data = data;
@@ -22,77 +28,59 @@ class XMLTree {
         }
     }
 
-    /**
-     * Level order traversal of the XMLTree
-     * @return  String formatted for level order traversal
+    // POSSIBLE API calls to add
+    /*
+    String getCurrentAttribute() {} //implemented in Iterator
+    String getAllSiblings() {}   //if on the last sibling, return
+    String getParentAttribute() {}
+    String getChildAttribute() {} //should return null if no more child attributes exist
+    String getDFSRepresentation() {}
+    String getData() {} //can only be run on an attribute which has a data child (leafnode)
      */
-    String getTree() {
-        StringBuilder tree = new StringBuilder();
-        Node node = root;
-
-        List<Node> mainQueue = new LinkedList<Node>();
-        List<Node> childQueue = new LinkedList<Node>();
-        mainQueue.add(node);
-
-        while (!mainQueue.isEmpty()) {  //Use BFS to print out the tree
-            node = mainQueue.remove(0);
-            tree.append(node.data + " ");
-
-            if (childQueue.isEmpty()) { //one level is up
-                tree.append("\n");
-                for (Node child: node.childNodes) {
-//                    System.out.println("adding child nodes");
-                    childQueue.add(child);
-                }
-            } else {
-                mainQueue.add(childQueue.remove(0));
-            }
-
-            if (!childQueue.isEmpty()) {    mainQueue.add(childQueue.remove(0));    }
-        }
-
-        return tree.toString();
-    }
-
 
     /**
-     * DFS of the tree
+     * Constructor sets up parser and creates XMLTree object
+     * @param pathToFile    String path to xml file
      */
-    public String getDFSTree() {
-        StringBuilder treeStr = new StringBuilder();
-        Stack<Node> nodeStack = new Stack<Node>();
-        nodeStack.push(this.root);
-
-        //String tree = getDFSTree(this.root, treeStr).toString();
-        getDFSTree(this.root, treeStr);
-        return treeStr.toString();
-    }
-
-    private void getDFSTree(Node node, StringBuilder treeStr) {
-        //Node node = nodeStack.peek();
-        System.out.println("entered recursive function");
-
-        for (Node child: node.childNodes) {
-            if (child.childNodes == null) {
-                treeStr.append(child.data);
-                System.out.println("reached leaf");
-            } else {
-                System.out.println("child has children, calling function again");
-                getDFSTree(child, treeStr);
-            }
+    public XMLTree(String pathToFile) {
+        XMLParser parser = new XMLParser(pathToFile);
+        try {
+            String xml = parser.readXMLFile(pathToFile);
+            parser.parseXMLToTree(xml, this);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-
-        //return treeStr;
     }
 
+    /**
+     * @return  String value of the root node
+     */
+    public String getRootNode() {
+        return root.data;
+    }
 
+    public Iterator getIterator() {
+        return new Iterator() {
+            @Override
+            public boolean hasNext() {  //refers to attribute siblings
+                return false;
+            }
 
+            @Override
+            public String next() {  //return the current sibling object
+                return null;
+            }
 
+            @Override
+            public void remove() { }  //not implemented
 
+            public List<String> getAllSiblings() {
 
+                return null;
+            }
 
-
-
+        };
+    }
 
 
 
